@@ -51,11 +51,11 @@
             </objects>
             <point key="canvasLocation" x="907" y="-2753"/>
         </scene>
-        <!--Item-->
+        <!--Bank Account-->
         <scene sceneID="nUO-Xz-de1">
             <objects>
                 <navigationController id="x31-5b-V3f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7VR-K2-NH1"/>
+                    <tabBarItem key="tabBarItem" title="Bank Account" image="bank" id="7VR-K2-NH1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gIv-G6-Ej4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -68,11 +68,11 @@
             </objects>
             <point key="canvasLocation" x="459" y="-2745"/>
         </scene>
-        <!--Item-->
+        <!--Reports-->
         <scene sceneID="Ua1-2A-5Tq">
             <objects>
                 <navigationController id="sYA-OF-tkx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Jw4-rz-c6w"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="reports" id="Jw4-rz-c6w"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rqq-qi-Cxd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -106,11 +106,11 @@
             </objects>
             <point key="canvasLocation" x="333" y="-1341"/>
         </scene>
-        <!--Item-->
+        <!--Expenses-->
         <scene sceneID="NVA-wz-OjR">
             <objects>
                 <navigationController id="fEz-yc-DfA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LWN-4v-fxS"/>
+                    <tabBarItem key="tabBarItem" title="Expenses" image="expenses" id="LWN-4v-fxS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vPY-B4-o07">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -144,11 +144,11 @@
             </objects>
             <point key="canvasLocation" x="1153" y="-1341"/>
         </scene>
-        <!--Item-->
+        <!--Income-->
         <scene sceneID="8bf-YO-fvZ">
             <objects>
                 <navigationController id="4Jf-re-hGi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4Lo-88-e0C"/>
+                    <tabBarItem key="tabBarItem" title="Income" image="income" id="4Lo-88-e0C"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tfy-eV-YoF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
