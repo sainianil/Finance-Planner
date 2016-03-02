@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1710" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -17,25 +17,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your current account balance is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-kA-Lyn">
-                                <rect key="frame" x="27" y="149" width="267" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current account balance is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-kA-Lyn">
+                                <rect key="frame" x="20" y="149" width="280" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Ads-04-GRT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsx-V8-EAW">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="bezel" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qsx-V8-EAW">
                                 <rect key="frame" x="68" y="287" width="185" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9vc-Ew-gdF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="Stu-cI-VRu"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0w-Mh-mhg">
-                                <rect key="frame" x="68" y="343" width="185" height="36"/>
-                                <color key="backgroundColor" red="0.070588238537311554" green="0.37254902720451355" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0w-Mh-mhg">
+                                <rect key="frame" x="68" y="343" width="185" height="44"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RYf-cf-f2y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Update Balance"/>
+                                <connections>
+                                    <action selector="updateBalance:" destination="9pv-A4-QxB" eventType="touchUpInside" id="iAz-4U-5VB"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-B3-A6E">
-                                <rect key="frame" x="68" y="188" width="185" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-B3-A6E">
+                                <rect key="frame" x="20" y="188" width="280" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="f5O-Bn-3Hh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,9 +61,28 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="V0w-Mh-mhg" firstAttribute="top" secondItem="Qsx-V8-EAW" secondAttribute="bottom" constant="26" id="01i-fG-dFB"/>
+                            <constraint firstItem="V0w-Mh-mhg" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="68" id="1Hf-BI-FI6"/>
+                            <constraint firstAttribute="trailing" secondItem="V0w-Mh-mhg" secondAttribute="trailing" constant="67" id="38j-KG-ACi"/>
+                            <constraint firstItem="yfn-B3-A6E" firstAttribute="top" secondItem="d2D-kA-Lyn" secondAttribute="bottom" constant="8" id="4lW-lz-rSR"/>
+                            <constraint firstItem="yfn-B3-A6E" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="6nN-gk-pWZ"/>
+                            <constraint firstAttribute="trailing" secondItem="yfn-B3-A6E" secondAttribute="trailing" constant="20" id="AUa-FJ-KTh"/>
+                            <constraint firstAttribute="trailing" secondItem="Qsx-V8-EAW" secondAttribute="trailing" constant="67" id="AkT-GV-IeC"/>
+                            <constraint firstItem="Qsx-V8-EAW" firstAttribute="top" secondItem="yfn-B3-A6E" secondAttribute="bottom" constant="72" id="CzU-yg-oPQ"/>
+                            <constraint firstItem="d2D-kA-Lyn" firstAttribute="top" secondItem="3CB-np-9Ro" secondAttribute="bottom" constant="85" id="FUv-Vm-0zH"/>
+                            <constraint firstItem="Qsx-V8-EAW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="68" id="Reg-9T-gjM"/>
+                            <constraint firstAttribute="trailing" secondItem="d2D-kA-Lyn" secondAttribute="trailing" constant="20" id="a3l-pd-7Ze"/>
+                            <constraint firstItem="d2D-kA-Lyn" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="sCw-U2-tNf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bank Account" image="bank" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Bank Account Summary" id="kht-g3-1j3"/>
+                    <connections>
+                        <outlet property="btnUpdateBalance" destination="V0w-Mh-mhg" id="xEO-hl-19p"/>
+                        <outlet property="lblBalance" destination="yfn-B3-A6E" id="MLk-UM-OXP"/>
+                        <outlet property="txtUpdateBalance" destination="Qsx-V8-EAW" id="0jj-DT-4BH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +198,7 @@
             </objects>
             <point key="canvasLocation" x="453" y="-2124"/>
         </scene>
-        <!--Income Details-->
+        <!--Income Source-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="IncomeViewController" sceneMemberID="viewController">
@@ -172,11 +209,100 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VJI-0l-7NM">
+                                <rect key="frame" x="20" y="87" width="280" height="29"/>
+                                <segments>
+                                    <segment title="Ad-hoc Income"/>
+                                    <segment title="Recurring Income"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentControllerAction:" destination="8rJ-Kc-sve" eventType="valueChanged" id="mVT-gr-pzc"/>
+                                </connections>
+                            </segmentedControl>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbq-QV-xTq">
+                                <rect key="frame" x="20" y="133" width="280" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pjF-50-ud6"/>
+                                </constraints>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Description of ad-hoc income" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D2Q-ME-R67">
+                                <rect key="frame" x="20" y="183" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bVQ-OM-uiv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tDZ-eO-upU">
+                                <rect key="frame" x="20" y="223" width="280" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="de9-tQ-1GD"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="478640653.98921102">
+                                    <!--2016-03-02 19:44:13 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="aPU-sF-Bdj">
+                                <rect key="frame" x="20" y="283" width="234" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6K3-Ne-2ps"/>
+                                </constraints>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12" borderStyle="bezel" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="o94-TK-snW">
+                                <rect key="frame" x="262" y="291" width="38" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="SKv-zl-SIy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJc-T8-ZEb">
+                                <rect key="frame" x="20" y="337" width="280" height="44"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pre-hW-YbG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Add Income"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tDZ-eO-upU" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="5XB-jq-QgV"/>
+                            <constraint firstAttribute="trailing" secondItem="D2Q-ME-R67" secondAttribute="trailing" constant="20" id="6xR-TP-26i"/>
+                            <constraint firstItem="VJI-0l-7NM" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="7dU-6m-qhM"/>
+                            <constraint firstItem="o94-TK-snW" firstAttribute="trailing" secondItem="tDZ-eO-upU" secondAttribute="trailing" id="8Ek-n6-FSO"/>
+                            <constraint firstItem="tDZ-eO-upU" firstAttribute="top" secondItem="D2Q-ME-R67" secondAttribute="bottom" constant="10" id="EZ3-FN-7J1"/>
+                            <constraint firstItem="o94-TK-snW" firstAttribute="top" secondItem="tDZ-eO-upU" secondAttribute="bottom" constant="16" id="GMn-Z9-XZM"/>
+                            <constraint firstItem="Tbq-QV-xTq" firstAttribute="top" secondItem="VJI-0l-7NM" secondAttribute="bottom" constant="18" id="Gdx-eZ-mQa"/>
+                            <constraint firstAttribute="trailing" secondItem="VJI-0l-7NM" secondAttribute="trailing" constant="20" id="IJ8-bf-Nhb"/>
+                            <constraint firstItem="aPU-sF-Bdj" firstAttribute="leading" secondItem="tDZ-eO-upU" secondAttribute="leading" id="XE9-PM-kJF"/>
+                            <constraint firstItem="D2Q-ME-R67" firstAttribute="top" secondItem="Tbq-QV-xTq" secondAttribute="bottom" constant="10" id="YVU-Yj-QdL"/>
+                            <constraint firstItem="VJI-0l-7NM" firstAttribute="top" secondItem="yIQ-ZA-ecg" secondAttribute="bottom" constant="23" id="a9D-4B-LbR"/>
+                            <constraint firstItem="aPU-sF-Bdj" firstAttribute="top" secondItem="tDZ-eO-upU" secondAttribute="bottom" constant="8" symbolic="YES" id="bpl-jt-rYE"/>
+                            <constraint firstAttribute="trailing" secondItem="tDZ-eO-upU" secondAttribute="trailing" constant="20" id="c3P-YS-RJW"/>
+                            <constraint firstItem="aPU-sF-Bdj" firstAttribute="centerY" secondItem="o94-TK-snW" secondAttribute="centerY" id="cVg-f1-qTc"/>
+                            <constraint firstAttribute="trailing" secondItem="Tbq-QV-xTq" secondAttribute="trailing" constant="20" id="gGQ-OR-D1t"/>
+                            <constraint firstItem="Tbq-QV-xTq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="gSi-K4-XBh"/>
+                            <constraint firstItem="D2Q-ME-R67" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="irh-UG-F5n"/>
+                            <constraint firstItem="HJc-T8-ZEb" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="lul-mp-lMk"/>
+                            <constraint firstItem="HJc-T8-ZEb" firstAttribute="top" secondItem="aPU-sF-Bdj" secondAttribute="bottom" constant="10" id="rhI-K4-gln"/>
+                            <constraint firstAttribute="trailing" secondItem="HJc-T8-ZEb" secondAttribute="trailing" constant="20" id="tKT-Ea-Jq9"/>
+                            <constraint firstItem="o94-TK-snW" firstAttribute="leading" secondItem="aPU-sF-Bdj" secondAttribute="trailing" constant="8" symbolic="YES" id="vn3-6G-kIu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Income" image="income" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" title="Income Details" id="ueL-xa-03K"/>
+                    <navigationItem key="navigationItem" title="Income Source" id="ueL-xa-03K"/>
+                    <connections>
+                        <outlet property="incomeCategory" destination="Tbq-QV-xTq" id="Pz1-yD-pfk"/>
+                        <outlet property="recurringType" destination="aPU-sF-Bdj" id="vGJ-KQ-4iW"/>
+                        <outlet property="segmentControl" destination="VJI-0l-7NM" id="jBq-At-huE"/>
+                        <outlet property="txtNoOfOccurances" destination="o94-TK-snW" id="yTI-fm-SYr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

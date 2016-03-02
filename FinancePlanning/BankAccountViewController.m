@@ -7,20 +7,37 @@
 //
 
 #import "BankAccountViewController.h"
+#import "Model/BankAccount.h"
 
 @interface BankAccountViewController ()
+
+@property (nonatomic, strong) BankAccount* bankAccount;
+@property (weak, nonatomic) IBOutlet UILabel *lblBalance;
+@property (weak, nonatomic) IBOutlet UITextField *txtUpdateBalance;
+@property (weak, nonatomic) IBOutlet UIButton *btnUpdateBalance;
 
 @end
 
 @implementation BankAccountViewController
+@synthesize bankAccount;
+@synthesize lblBalance;
+@synthesize txtUpdateBalance;
+@synthesize btnUpdateBalance;
+
+- (BankAccount*)bankAccount {
+    
+    if (bankAccount == nil) {
+        bankAccount = [[BankAccount alloc] init];
+    }
+    
+    return bankAccount;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationController.title = @"Bank Account Summary";
-//    NSLog(@"%@", self.navigationController.title);
-  
     
-    // Do any additional setup after loading the view.
+    btnUpdateBalance.enabled = NO;
+    self.lblBalance.text = [NSString stringWithFormat:@"%.2f",  self.bankAccount.balance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,10 +45,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSString *)title
-{
-    return @"Bank Account Summary";
+- (IBAction)updateBalance:(id)sender {
+    self.bankAccount.balance = [txtUpdateBalance.text floatValue];
+    NSLog([NSString stringWithFormat:@"%.2f", self.bankAccount.balance]);
+    lblBalance.text = [NSString stringWithFormat:@"%.2f",  self.bankAccount.balance];
 }
+
 /*
 #pragma mark - Navigation
 
@@ -41,5 +60,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITextFieldDelegate methods
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    if ([textField.text floatValue] > 0.0) {
+        btnUpdateBalance.enabled = YES;
+    }
+}
 
 @end

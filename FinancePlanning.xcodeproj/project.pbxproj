@@ -17,6 +17,9 @@
 		0437B9E01C870EA000F80F76 /* IncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437B9DF1C870EA000F80F76 /* IncomeViewController.m */; };
 		0437B9E31C870EB200F80F76 /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437B9E21C870EB200F80F76 /* ExpenseViewController.m */; };
 		0437B9E61C870EC300F80F76 /* ResportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437B9E51C870EC300F80F76 /* ResportViewController.m */; };
+		477B90EA1C8758AE001345FF /* BankAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90E91C8758AE001345FF /* BankAccount.m */; };
+		477B90ED1C87599D001345FF /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90EC1C87599D001345FF /* Income.m */; };
+		477B90F01C8759AF001345FF /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90EF1C8759AF001345FF /* Expense.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,12 @@
 		0437B9E21C870EB200F80F76 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
 		0437B9E41C870EC300F80F76 /* ResportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResportViewController.h; sourceTree = "<group>"; };
 		0437B9E51C870EC300F80F76 /* ResportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResportViewController.m; sourceTree = "<group>"; };
+		477B90E81C8758AE001345FF /* BankAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BankAccount.h; path = Model/BankAccount.h; sourceTree = "<group>"; };
+		477B90E91C8758AE001345FF /* BankAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BankAccount.m; path = Model/BankAccount.m; sourceTree = "<group>"; };
+		477B90EB1C87599D001345FF /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Income.h; path = Model/Income.h; sourceTree = "<group>"; };
+		477B90EC1C87599D001345FF /* Income.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Income.m; path = Model/Income.m; sourceTree = "<group>"; };
+		477B90EE1C8759AF001345FF /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
+		477B90EF1C8759AF001345FF /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +99,7 @@
 		0437B9B21C86BE9700F80F76 /* FinancePlanning */ = {
 			isa = PBXGroup;
 			children = (
+				477B90E51C8757BE001345FF /* Model */,
 				0437B9B61C86BE9700F80F76 /* AppDelegate.h */,
 				0437B9DB1C870E8A00F80F76 /* BankAccountViewController.h */,
 				0437B9E11C870EB200F80F76 /* ExpenseViewController.h */,
@@ -124,6 +134,19 @@
 				0437B9D21C86BE9700F80F76 /* Info.plist */,
 			);
 			path = FinancePlanningTests;
+			sourceTree = "<group>";
+		};
+		477B90E51C8757BE001345FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				477B90E81C8758AE001345FF /* BankAccount.h */,
+				477B90E91C8758AE001345FF /* BankAccount.m */,
+				477B90EB1C87599D001345FF /* Income.h */,
+				477B90EC1C87599D001345FF /* Income.m */,
+				477B90EE1C8759AF001345FF /* Expense.h */,
+				477B90EF1C8759AF001345FF /* Expense.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,11 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477B90EA1C8758AE001345FF /* BankAccount.m in Sources */,
 				0437B9B81C86BE9700F80F76 /* AppDelegate.m in Sources */,
 				0437B9B51C86BE9700F80F76 /* main.m in Sources */,
 				0437B9DD1C870E8A00F80F76 /* BankAccountViewController.m in Sources */,
 				0437B9E01C870EA000F80F76 /* IncomeViewController.m in Sources */,
+				477B90F01C8759AF001345FF /* Expense.m in Sources */,
 				0437B9E61C870EC300F80F76 /* ResportViewController.m in Sources */,
+				477B90ED1C87599D001345FF /* Income.m in Sources */,
 				0437B9E31C870EB200F80F76 /* ExpenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +446,7 @@
 				0437B9D71C86BE9700F80F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0437B9D81C86BE9700F80F76 /* Build configuration list for PBXNativeTarget "FinancePlanningTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +455,7 @@
 				0437B9DA1C86BE9700F80F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
