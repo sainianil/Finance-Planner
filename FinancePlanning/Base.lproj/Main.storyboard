@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1710" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Bank Account Summary-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController id="9pv-A4-QxB" customClass="BankAccountViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3CB-np-9Ro"/>
+                        <viewControllerLayoutGuide type="bottom" id="4LV-rP-rrp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your current account balance is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2D-kA-Lyn">
+                                <rect key="frame" x="27" y="149" width="267" height="31"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qsx-V8-EAW">
+                                <rect key="frame" x="68" y="287" width="185" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0w-Mh-mhg">
+                                <rect key="frame" x="68" y="343" width="185" height="36"/>
+                                <color key="backgroundColor" red="0.070588238537311554" green="0.37254902720451355" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Update Balance"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-B3-A6E">
+                                <rect key="frame" x="68" y="188" width="185" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bank Account" image="bank" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" title="Bank Account Summary" id="kht-g3-1j3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="-2753"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="nUO-Xz-de1">
+            <objects>
+                <navigationController id="x31-5b-V3f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7VR-K2-NH1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gIv-G6-Ej4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="ON4-jt-Pew"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EF5-i7-JBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="-2745"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Ua1-2A-5Tq">
+            <objects>
+                <navigationController id="sYA-OF-tkx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Jw4-rz-c6w"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rqq-qi-Cxd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yCL-al-mYT" kind="relationship" relationship="rootViewController" id="bLs-dW-G7K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sHK-pa-6BG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="-1341"/>
+        </scene>
+        <!--Finance Reports-->
+        <scene sceneID="sDv-m0-gMZ">
+            <objects>
+                <viewController id="yCL-al-mYT" customClass="ResportViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FAK-dX-fOP"/>
+                        <viewControllerLayoutGuide type="bottom" id="xqt-mw-SXn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OeD-qU-iWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reports" image="reports" id="DmV-fv-Tyn"/>
+                    <navigationItem key="navigationItem" title="Finance Reports" id="rom-9j-N2u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSh-jc-yqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333" y="-1341"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="NVA-wz-OjR">
+            <objects>
+                <navigationController id="fEz-yc-DfA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LWN-4v-fxS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vPY-B4-o07">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lcp-EU-HUr" kind="relationship" relationship="rootViewController" id="jij-ev-VnD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="29b-Jq-TTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="-1341"/>
+        </scene>
+        <!--Expenses-->
+        <scene sceneID="KjX-Hl-TJn">
+            <objects>
+                <viewController title="Expenses" id="Lcp-EU-HUr" customClass="ExpenseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DMg-lO-emu"/>
+                        <viewControllerLayoutGuide type="bottom" id="nct-Zb-J6n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jVd-Ee-SYc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Expenses" image="expenses" id="gPs-VK-RNy"/>
+                    <navigationItem key="navigationItem" title="Expenses Details" id="ei1-J2-G6o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gog-jN-Mr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="-1341"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="8bf-YO-fvZ">
+            <objects>
+                <navigationController id="4Jf-re-hGi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4Lo-88-e0C"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tfy-eV-YoF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="5JK-iA-GFa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cg-AG-E1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453" y="-2124"/>
+        </scene>
+        <!--Income Details-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="IncomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yIQ-ZA-ecg"/>
+                        <viewControllerLayoutGuide type="bottom" id="HX2-Vb-UYj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Income" image="income" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Income Details" id="ueL-xa-03K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="-2117"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Account" id="z49-yU-dr1"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="x31-5b-V3f" kind="relationship" relationship="viewControllers" id="rZw-6P-joU"/>
+                        <segue destination="4Jf-re-hGi" kind="relationship" relationship="viewControllers" id="CbD-GL-nf0"/>
+                        <segue destination="fEz-yc-DfA" kind="relationship" relationship="viewControllers" id="uNg-zx-1zd"/>
+                        <segue destination="sYA-OF-tkx" kind="relationship" relationship="viewControllers" id="JIH-50-6qz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7" y="-2425"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bank" width="25" height="25"/>
+        <image name="expenses" width="25" height="25"/>
+        <image name="income" width="25" height="25"/>
+        <image name="reports" width="25" height="25"/>
+    </resources>
+</document>
