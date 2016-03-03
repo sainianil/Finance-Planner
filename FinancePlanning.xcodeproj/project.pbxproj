@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0423B3CD1C880786006802FA /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423B3CC1C880786006802FA /* Event.m */; };
+		0423B3D51C88769E006802FA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0423B3D41C88769E006802FA /* libsqlite3.0.tbd */; };
+		0423B3D91C887D0A006802FA /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423B3D81C887D0A006802FA /* DBManager.m */; };
 		0437B9B51C86BE9700F80F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437B9B41C86BE9700F80F76 /* main.m */; };
 		0437B9B81C86BE9700F80F76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437B9B71C86BE9700F80F76 /* AppDelegate.m */; };
 		0437B9C11C86BE9700F80F76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0437B9BF1C86BE9700F80F76 /* Main.storyboard */; };
@@ -33,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0423B3CB1C880786006802FA /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		0423B3CC1C880786006802FA /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		0423B3D41C88769E006802FA /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0423B3D71C887D0A006802FA /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		0423B3D81C887D0A006802FA /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		0437B9B01C86BE9700F80F76 /* FinancePlanning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancePlanning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0437B9B41C86BE9700F80F76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0437B9B61C86BE9700F80F76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0423B3D51C88769E006802FA /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0423B3D61C887CD2006802FA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				0423B3D71C887D0A006802FA /* DBManager.h */,
+				0423B3D81C887D0A006802FA /* DBManager.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		0437B9A71C86BE9700F80F76 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +117,7 @@
 		0437B9B21C86BE9700F80F76 /* FinancePlanning */ = {
 			isa = PBXGroup;
 			children = (
+				0423B3D61C887CD2006802FA /* Database */,
 				477B90E51C8757BE001345FF /* Model */,
 				0437B9B61C86BE9700F80F76 /* AppDelegate.h */,
 				0437B9DB1C870E8A00F80F76 /* BankAccountViewController.h */,
@@ -122,6 +141,7 @@
 		0437B9B31C86BE9700F80F76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0423B3D41C88769E006802FA /* libsqlite3.0.tbd */,
 				0437B9B41C86BE9700F80F76 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -145,6 +165,8 @@
 				477B90EC1C87599D001345FF /* Income.m */,
 				477B90EE1C8759AF001345FF /* Expense.h */,
 				477B90EF1C8759AF001345FF /* Expense.m */,
+				0423B3CB1C880786006802FA /* Event.h */,
+				0423B3CC1C880786006802FA /* Event.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,10 +273,12 @@
 			files = (
 				477B90EA1C8758AE001345FF /* BankAccount.m in Sources */,
 				0437B9B81C86BE9700F80F76 /* AppDelegate.m in Sources */,
+				0423B3CD1C880786006802FA /* Event.m in Sources */,
 				0437B9B51C86BE9700F80F76 /* main.m in Sources */,
 				0437B9DD1C870E8A00F80F76 /* BankAccountViewController.m in Sources */,
 				0437B9E01C870EA000F80F76 /* IncomeViewController.m in Sources */,
 				477B90F01C8759AF001345FF /* Expense.m in Sources */,
+				0423B3D91C887D0A006802FA /* DBManager.m in Sources */,
 				0437B9E61C870EC300F80F76 /* ResportViewController.m in Sources */,
 				477B90ED1C87599D001345FF /* Income.m in Sources */,
 				0437B9E31C870EB200F80F76 /* ExpenseViewController.m in Sources */,

@@ -14,4 +14,5 @@
 }
 @property (nonatomic, assign) float balance;
 
++ (id)sharedBankAccount;
 @end

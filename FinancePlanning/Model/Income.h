@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Event.h"
+
 
 @interface Income : NSObject
+{
+    Event *event;
+}
+
+@property(nonatomic, strong) Event *event;
+
+- (void)updateIncome;
 
 @end

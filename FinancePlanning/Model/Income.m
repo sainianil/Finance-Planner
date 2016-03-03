@@ -9,5 +9,16 @@
 #import "Income.h"
 
 @implementation Income
+@synthesize event;
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.event = [[Event alloc] initWithEventCategory:eIncome];
+    }
+    return self;
+}
+
+- (void)updateIncome {
+    NSLog(@"%@", event);
+}
 @end

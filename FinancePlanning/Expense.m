@@ -9,5 +9,16 @@
 #import "Expense.h"
 
 @implementation Expense
+@synthesize event;
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.event = [[Event alloc] initWithEventCategory:eExpense];
+    }
+    return self;
+}
+
+- (void)updateExpense {
+    NSLog(@"%@", event);
+}
 @end

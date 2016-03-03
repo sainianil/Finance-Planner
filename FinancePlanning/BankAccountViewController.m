@@ -11,7 +11,7 @@
 
 @interface BankAccountViewController ()
 
-@property (nonatomic, strong) BankAccount* bankAccount;
+//@property (nonatomic, strong) BankAccount* bankAccount;
 @property (weak, nonatomic) IBOutlet UILabel *lblBalance;
 @property (weak, nonatomic) IBOutlet UITextField *txtUpdateBalance;
 @property (weak, nonatomic) IBOutlet UIButton *btnUpdateBalance;
@@ -19,25 +19,17 @@
 @end
 
 @implementation BankAccountViewController
-@synthesize bankAccount;
+//@synthesize bankAccount;
 @synthesize lblBalance;
 @synthesize txtUpdateBalance;
 @synthesize btnUpdateBalance;
 
-- (BankAccount*)bankAccount {
-    
-    if (bankAccount == nil) {
-        bankAccount = [[BankAccount alloc] init];
-    }
-    
-    return bankAccount;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     btnUpdateBalance.enabled = NO;
-    self.lblBalance.text = [NSString stringWithFormat:@"%.2f",  self.bankAccount.balance];
+    self.lblBalance.text = [NSString stringWithFormat:@"%.2f",  [[BankAccount sharedBankAccount] balance]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +38,9 @@
 }
 
 - (IBAction)updateBalance:(id)sender {
-    self.bankAccount.balance = [txtUpdateBalance.text floatValue];
-    NSLog([NSString stringWithFormat:@"%.2f", self.bankAccount.balance]);
-    lblBalance.text = [NSString stringWithFormat:@"%.2f",  self.bankAccount.balance];
+    [[BankAccount sharedBankAccount] setBalance:[txtUpdateBalance.text floatValue]];
+   // NSLog([NSString stringWithFormat:@"%.2f", [[BankAccount sharedBankAccount] balance]]);
+    lblBalance.text = [NSString stringWithFormat:@"%.2f",  [[BankAccount sharedBankAccount] balance]];
 }
 
 /*
