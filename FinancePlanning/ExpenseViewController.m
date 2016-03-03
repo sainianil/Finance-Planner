@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *eventDatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddExpense;
 @property (weak, nonatomic) IBOutlet UILabel *lblRepeat;
+@property (weak, nonatomic) IBOutlet UITextField *txtAmount;
 
 - (void)setup;
 - (void)enableDisableAddExpenseButton;
@@ -34,6 +35,7 @@
 @synthesize recurringType;
 @synthesize txtNoOfOccurences;
 @synthesize lblRepeat;
+@synthesize txtAmount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,6 +51,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtExpenseDesc];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtNoOfOccurences];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtAmount];
 }
 
 - (void)textFieldDidChange:(NSNotification*)notif {
@@ -75,21 +78,21 @@
         expenseCategories = @[@"Car Insurance", @"Life Insurance", @"Others"];
     } else if(segmentControl.selectedSegmentIndex == 1) {  //Recurring expense source
         expenseCategories = @[@"Food & Groceries", @"Utility Bills", @"Rent", @"Others"];
-        recurringCategories = @[@"Montly", @"Quaterly"];
+        recurringCategories = @[@"Monthly", @"Quaterly"];
         [recurringType reloadAllComponents];
     }
     
     lblRepeat.hidden = txtNoOfOccurences.hidden = recurringType.hidden = isHidden;
+    [self enableDisableAddExpenseButton];
 }
 
 - (void)enableDisableAddExpenseButton {
     BOOL isEnable = NO;
-    if(segmentControl.selectedSegmentIndex == 0 && [self.txtExpenseDesc.text length] > 0)  {
+    BOOL isAdHoc = ([self.txtAmount.text length] > 0 && [self.txtExpenseDesc.text length] > 0);
+    if((segmentControl.selectedSegmentIndex == 0 && isAdHoc) || (segmentControl.selectedSegmentIndex == 1 && [self.txtNoOfOccurences.text length] > 0 && isAdHoc))  {
         isEnable = YES;
     }
-    else if (segmentControl.selectedSegmentIndex == 1 && [self.txtNoOfOccurences.text length] > 0 && [self.txtExpenseDesc.text length] > 0) {
-        isEnable = YES;
-    }
+    
     self.btnAddExpense.enabled = isEnable;
 }
 
@@ -109,6 +112,7 @@
     [[expense event] setEventType:eType];
     NSLog(@"%@", [expenseCategories objectAtIndex:[expenseCategory selectedRowInComponent:0]]);
     [[expense event] setEventName:[expenseCategories objectAtIndex:[expenseCategory selectedRowInComponent:0]]];
+    [[expense event] setAmount:[NSNumber numberWithFloat:[self.txtAmount.text floatValue]]];
     [[expense event] setEventDescription:self.txtExpenseDesc.text];
     [[expense event] setStartDate:self.eventDatePicker.date];
     [[expense event] setRecurringByDuration:[recurringCategories objectAtIndex:[recurringType selectedRowInComponent:0]]];

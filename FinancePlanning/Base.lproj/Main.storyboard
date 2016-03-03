@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1710" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -34,9 +34,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="Stu-cI-VRu"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0w-Mh-mhg">
                                 <rect key="frame" x="68" y="255" width="185" height="44"/>
@@ -188,11 +185,8 @@
                                     <action selector="segmentControllerAction:" destination="8rJ-Kc-sve" eventType="valueChanged" id="JZ1-bU-f5n"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Description of ad-hoc income" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-kW-1zF">
-                                <rect key="frame" x="20" y="183" width="280" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="tRt-rU-KAW"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Description of income" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-kW-1zF">
+                                <rect key="frame" x="120" y="183" width="180" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -248,6 +242,15 @@
                                     <constraint firstAttribute="height" constant="40" id="rmI-kO-q9t"/>
                                 </constraints>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-ro-JaN">
+                                <rect key="frame" x="20" y="183" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="iuk-OU-p65"/>
+                                    <constraint firstAttribute="width" constant="92" id="ju5-wF-IJh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -258,21 +261,24 @@
                             <constraint firstAttribute="trailing" secondItem="nIX-vO-gJ1" secondAttribute="trailing" constant="20" id="DnT-I5-uh7"/>
                             <constraint firstItem="mOj-bP-CQH" firstAttribute="top" secondItem="enj-Mk-2Ps" secondAttribute="bottom" constant="18" id="GUt-gU-8CL"/>
                             <constraint firstAttribute="trailing" secondItem="Wxk-mc-nDl" secondAttribute="trailing" constant="20" id="GWX-Ez-dWf"/>
-                            <constraint firstItem="nIX-vO-gJ1" firstAttribute="top" secondItem="mCx-kW-1zF" secondAttribute="bottom" constant="10" id="Ivp-Pp-HEt"/>
+                            <constraint firstItem="mCx-kW-1zF" firstAttribute="leading" secondItem="aQY-ro-JaN" secondAttribute="trailing" constant="8" symbolic="YES" id="IZj-GV-b9d"/>
                             <constraint firstItem="Sy1-mo-bKe" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="Kei-a9-9Vu"/>
                             <constraint firstItem="nIX-vO-gJ1" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="Kry-qh-EHM"/>
-                            <constraint firstItem="mCx-kW-1zF" firstAttribute="top" secondItem="mOj-bP-CQH" secondAttribute="bottom" constant="10" id="O5R-Uh-hB6"/>
+                            <constraint firstItem="aQY-ro-JaN" firstAttribute="top" secondItem="mOj-bP-CQH" secondAttribute="bottom" constant="10" id="MOf-oS-iR4"/>
+                            <constraint firstItem="nIX-vO-gJ1" firstAttribute="top" secondItem="mCx-kW-1zF" secondAttribute="bottom" constant="10" id="Pll-BU-rK9"/>
                             <constraint firstItem="Hty-Vd-iNO" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="QMd-tp-PRq"/>
+                            <constraint firstItem="aQY-ro-JaN" firstAttribute="centerY" secondItem="mCx-kW-1zF" secondAttribute="centerY" id="T7c-bb-znA"/>
                             <constraint firstItem="Wxk-mc-nDl" firstAttribute="leading" secondItem="e3o-ul-pz1" secondAttribute="trailing" constant="13" id="X4T-3G-lxm"/>
+                            <constraint firstItem="aQY-ro-JaN" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="XFj-ot-3hy"/>
                             <constraint firstItem="Hty-Vd-iNO" firstAttribute="centerY" secondItem="Wxk-mc-nDl" secondAttribute="centerY" id="XgG-6J-mWz"/>
                             <constraint firstItem="e3o-ul-pz1" firstAttribute="top" secondItem="nIX-vO-gJ1" secondAttribute="bottom" constant="14" id="YW8-p3-AXS"/>
+                            <constraint firstItem="mCx-kW-1zF" firstAttribute="top" secondItem="mOj-bP-CQH" secondAttribute="bottom" constant="10" id="at8-AF-juZ"/>
                             <constraint firstAttribute="trailing" secondItem="enj-Mk-2Ps" secondAttribute="trailing" constant="20" id="era-JH-URU"/>
-                            <constraint firstItem="mCx-kW-1zF" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="h85-Y2-4zU"/>
                             <constraint firstItem="Sy1-mo-bKe" firstAttribute="top" secondItem="Wxk-mc-nDl" secondAttribute="bottom" constant="10" id="iPl-ym-haj"/>
                             <constraint firstAttribute="trailing" secondItem="Sy1-mo-bKe" secondAttribute="trailing" constant="20" id="kUr-J4-Y03"/>
                             <constraint firstItem="enj-Mk-2Ps" firstAttribute="top" secondItem="DMg-lO-emu" secondAttribute="bottom" constant="23" id="kgt-gm-5fA"/>
                             <constraint firstItem="e3o-ul-pz1" firstAttribute="leading" secondItem="Hty-Vd-iNO" secondAttribute="trailing" constant="3" id="nCm-2t-4oE"/>
-                            <constraint firstAttribute="trailing" secondItem="mCx-kW-1zF" secondAttribute="trailing" constant="20" id="vir-Tt-2qq"/>
+                            <constraint firstItem="mCx-kW-1zF" firstAttribute="trailing" secondItem="mOj-bP-CQH" secondAttribute="trailing" id="wBv-mN-NpZ"/>
                             <constraint firstAttribute="trailing" secondItem="mOj-bP-CQH" secondAttribute="trailing" constant="20" id="wgV-44-5wI"/>
                             <constraint firstItem="enj-Mk-2Ps" firstAttribute="leading" secondItem="jVd-Ee-SYc" secondAttribute="leading" constant="20" id="xbG-wh-UKy"/>
                             <constraint firstItem="Hty-Vd-iNO" firstAttribute="top" secondItem="nIX-vO-gJ1" secondAttribute="bottom" constant="14" id="zQ7-Mg-Uxc"/>
@@ -287,6 +293,7 @@
                         <outlet property="lblRepeat" destination="Hty-Vd-iNO" id="QPO-Bw-Hv4"/>
                         <outlet property="recurringType" destination="Wxk-mc-nDl" id="lFB-4y-mbB"/>
                         <outlet property="segmentControl" destination="enj-Mk-2Ps" id="CKI-0f-7ZB"/>
+                        <outlet property="txtAmount" destination="aQY-ro-JaN" id="Mp3-Eh-rhY"/>
                         <outlet property="txtExpenseDesc" destination="mCx-kW-1zF" id="2P3-hv-xkC"/>
                         <outlet property="txtNoOfOccurences" destination="e3o-ul-pz1" id="ecf-Qm-0gB"/>
                     </connections>
@@ -342,10 +349,10 @@
                                     <constraint firstAttribute="height" constant="40" id="pjF-50-ud6"/>
                                 </constraints>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Description of ad-hoc income" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D2Q-ME-R67">
-                                <rect key="frame" x="20" y="183" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Description income" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D2Q-ME-R67">
+                                <rect key="frame" x="120" y="183" width="180" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bVQ-OM-uiv"/>
+                                    <constraint firstAttribute="height" constant="30" id="fb9-B7-j4W"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -394,32 +401,43 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Amount" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wcF-io-idd">
+                                <rect key="frame" x="20" y="183" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="4Zr-jI-pzT"/>
+                                    <constraint firstAttribute="height" constant="30" id="O14-0z-6Yx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="aPU-sF-Bdj" secondAttribute="trailing" constant="4" id="0xg-xe-abZ"/>
                             <constraint firstItem="tDZ-eO-upU" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="5XB-jq-QgV"/>
-                            <constraint firstAttribute="trailing" secondItem="D2Q-ME-R67" secondAttribute="trailing" constant="20" id="6xR-TP-26i"/>
                             <constraint firstItem="VJI-0l-7NM" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="7dU-6m-qhM"/>
-                            <constraint firstItem="tDZ-eO-upU" firstAttribute="top" secondItem="D2Q-ME-R67" secondAttribute="bottom" constant="10" id="EZ3-FN-7J1"/>
+                            <constraint firstItem="D2Q-ME-R67" firstAttribute="leading" secondItem="wcF-io-idd" secondAttribute="trailing" constant="8" id="Beg-85-rSP"/>
                             <constraint firstItem="Tbq-QV-xTq" firstAttribute="top" secondItem="VJI-0l-7NM" secondAttribute="bottom" constant="18" id="Gdx-eZ-mQa"/>
                             <constraint firstAttribute="trailing" secondItem="VJI-0l-7NM" secondAttribute="trailing" constant="20" id="IJ8-bf-Nhb"/>
                             <constraint firstItem="VJI-0l-7NM" firstAttribute="top" secondItem="yIQ-ZA-ecg" secondAttribute="bottom" constant="23" id="QVv-DQ-cej"/>
                             <constraint firstItem="o94-TK-snW" firstAttribute="top" secondItem="tDZ-eO-upU" secondAttribute="bottom" constant="14" id="S5T-Ei-IJq"/>
-                            <constraint firstItem="D2Q-ME-R67" firstAttribute="top" secondItem="Tbq-QV-xTq" secondAttribute="bottom" constant="10" id="YVU-Yj-QdL"/>
+                            <constraint firstItem="tDZ-eO-upU" firstAttribute="top" secondItem="D2Q-ME-R67" secondAttribute="bottom" constant="10" id="WwB-9Z-3sy"/>
+                            <constraint firstItem="wcF-io-idd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="apA-fo-sIs"/>
                             <constraint firstItem="aPU-sF-Bdj" firstAttribute="top" secondItem="tDZ-eO-upU" secondAttribute="bottom" constant="9" id="bdG-kH-ALj"/>
                             <constraint firstItem="Q9O-7E-1dG" firstAttribute="top" secondItem="tDZ-eO-upU" secondAttribute="bottom" constant="14" id="byz-1b-DnT"/>
                             <constraint firstAttribute="trailing" secondItem="tDZ-eO-upU" secondAttribute="trailing" constant="20" id="c3P-YS-RJW"/>
                             <constraint firstItem="aPU-sF-Bdj" firstAttribute="leading" secondItem="o94-TK-snW" secondAttribute="trailing" constant="13" id="e4Q-di-mnF"/>
                             <constraint firstAttribute="trailing" secondItem="Tbq-QV-xTq" secondAttribute="trailing" constant="20" id="gGQ-OR-D1t"/>
                             <constraint firstItem="Tbq-QV-xTq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="gSi-K4-XBh"/>
-                            <constraint firstItem="D2Q-ME-R67" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="irh-UG-F5n"/>
+                            <constraint firstAttribute="trailing" secondItem="D2Q-ME-R67" secondAttribute="trailing" constant="20" id="gdq-Fh-cuR"/>
+                            <constraint firstItem="wcF-io-idd" firstAttribute="top" secondItem="Tbq-QV-xTq" secondAttribute="bottom" constant="10" id="lHa-Qe-zkG"/>
                             <constraint firstItem="HJc-T8-ZEb" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="lul-mp-lMk"/>
                             <constraint firstItem="HJc-T8-ZEb" firstAttribute="top" secondItem="aPU-sF-Bdj" secondAttribute="bottom" constant="10" id="mll-wI-zoa"/>
                             <constraint firstItem="o94-TK-snW" firstAttribute="leading" secondItem="Q9O-7E-1dG" secondAttribute="trailing" constant="3" id="obD-rW-igs"/>
                             <constraint firstItem="Q9O-7E-1dG" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="osA-56-bQS"/>
                             <constraint firstAttribute="trailing" secondItem="HJc-T8-ZEb" secondAttribute="trailing" constant="20" id="tKT-Ea-Jq9"/>
+                            <constraint firstItem="D2Q-ME-R67" firstAttribute="top" secondItem="Tbq-QV-xTq" secondAttribute="bottom" constant="10" id="waD-FO-A8f"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Income" image="income" id="cPa-gy-q4n"/>
@@ -431,6 +449,7 @@
                         <outlet property="lblRepeat" destination="Q9O-7E-1dG" id="dYF-aE-5bJ"/>
                         <outlet property="recurringType" destination="aPU-sF-Bdj" id="vGJ-KQ-4iW"/>
                         <outlet property="segmentControl" destination="VJI-0l-7NM" id="jBq-At-huE"/>
+                        <outlet property="txtAmount" destination="wcF-io-idd" id="pbc-Nx-CfN"/>
                         <outlet property="txtIncomeDesc" destination="D2Q-ME-R67" id="Ece-yD-VFm"/>
                         <outlet property="txtNoOfOccurences" destination="o94-TK-snW" id="b39-mA-eG7"/>
                     </connections>

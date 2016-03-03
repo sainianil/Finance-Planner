@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BankAccountViewController : UIViewController <UITextFieldDelegate>
+@interface BankAccountViewController : UIViewController
 
 @end

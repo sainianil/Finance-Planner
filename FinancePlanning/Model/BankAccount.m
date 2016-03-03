@@ -7,6 +7,7 @@
 //
 
 #import "BankAccount.h"
+#import "DBManager.h"
 
 static BankAccount *bankAccount = nil;
 
@@ -23,6 +24,7 @@ static BankAccount *bankAccount = nil;
 {
     if(!bankAccount){
         bankAccount = [[BankAccount alloc] init];
+        [bankAccount setBalance:[[DBManager sharedDatabaseManager] accountBalance]];
     }
     
     return bankAccount;
@@ -45,6 +47,7 @@ static BankAccount *bankAccount = nil;
 - (void)setBalance:(float)newBalance
 {
     balance += newBalance;
+    [[DBManager sharedDatabaseManager] updateAccountBalance:balance];
 }
 
 @end

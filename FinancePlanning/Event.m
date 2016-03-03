@@ -17,6 +17,14 @@
 @end
 
 @implementation Event
+@synthesize eventType;
+@synthesize eventCategory;
+@synthesize eventName;
+@synthesize amount;
+@synthesize eventDescription;
+@synthesize startDate;
+@synthesize recurringByDuration;
+@synthesize occurrences;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -33,21 +41,13 @@
 }
 
 - (NSString *)description {
-    NSString *desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Desc: %@,\n StartDate:%@)", eventType, eventCategory, eventName, eventDescription, startDate];
+    NSString *desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Amount:%@,\n Desc: %@,\n StartDate:%@)", eventType, eventCategory, eventName, amount, eventDescription, startDate];
     
     if (eventType == eRecurring) {
-        desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Desc: %@,\n StartDate:%@,\n RecurringByDuration:%@,\n Occurrences:%@)", eventType, eventCategory, eventName, eventDescription, startDate, recurringByDuration, occurrences];
+        desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Desc: %@,\n Amount:%@,\n StartDate:%@,\n RecurringByDuration:%@,\n Occurrences:%@)", eventType, eventCategory, eventName, amount, eventDescription, startDate, recurringByDuration, occurrences];
     }
     
     return desc;
 }
-
-@synthesize eventType;
-@synthesize eventCategory;
-@synthesize eventName;
-@synthesize eventDescription;
-@synthesize startDate;
-@synthesize recurringByDuration;
-@synthesize occurrences;
 
 @end

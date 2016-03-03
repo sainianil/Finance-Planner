@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *eventDatePicker;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddIncome;
 @property (weak, nonatomic) IBOutlet UILabel *lblRepeat;
+@property (weak, nonatomic) IBOutlet UITextField *txtAmount;
 
 - (void)setup;
 - (void)enableDisableAddIncomeButton;
@@ -32,6 +33,7 @@
 @synthesize recurringType;
 @synthesize txtNoOfOccurences;
 @synthesize lblRepeat;
+@synthesize txtAmount;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,10 +43,13 @@
     incomeCategory.dataSource = self;
     recurringType.delegate = self;
     recurringType.dataSource = self;
-    [self enableDisableAddIncomeButton];
+    //Setup UI
     [self setup];
+    
+    //Setup textfield change observer
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtIncomeDesc];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtNoOfOccurences];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtAmount];
 }
 
 - (void)textFieldDidChange:(NSNotification*)notif {
@@ -67,11 +72,12 @@
         incomeCategories = @[@"Loan", @"Borrow", @"Others"];
     } else if(segmentControl.selectedSegmentIndex == 1) {  //Recurring Income source
         incomeCategories = @[@"Salary", @"FD Interest", @"Others"];
-        recurringCategories = @[@"Montly", @"Quaterly"];
+        recurringCategories = @[@"Monthly", @"Quaterly"];
         [recurringType reloadAllComponents];
     }
     
     lblRepeat.hidden = txtNoOfOccurences.hidden = recurringType.hidden = isHidden;
+    [self enableDisableAddIncomeButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,11 +87,8 @@
 
 - (void)enableDisableAddIncomeButton {
     BOOL isEnable = NO;
-    
-    if(segmentControl.selectedSegmentIndex == 0 && [self.txtIncomeDesc.text length] > 0)  {
-        isEnable = YES;
-    }
-    else if (segmentControl.selectedSegmentIndex == 1 && [self.txtNoOfOccurences.text length] > 0 && [self.txtIncomeDesc.text length] > 0) {
+    BOOL isAdHoc = ([self.txtAmount.text length] > 0 && [self.txtIncomeDesc.text length] > 0);
+    if((segmentControl.selectedSegmentIndex == 0 && isAdHoc) || (segmentControl.selectedSegmentIndex == 1 && [self.txtNoOfOccurences.text length] > 0 && isAdHoc))  {
         isEnable = YES;
     }
 
@@ -108,6 +111,7 @@
     [[income event] setEventType:eType];
     NSLog(@"%@", [incomeCategories objectAtIndex:[incomeCategory selectedRowInComponent:0]]);
     [[income event] setEventName:[incomeCategories objectAtIndex:[incomeCategory selectedRowInComponent:0]]];
+    [[income event] setAmount:[NSNumber numberWithFloat:[self.txtAmount.text floatValue]]];
     [[income event] setEventDescription:self.txtIncomeDesc.text];
     [[income event] setStartDate:self.eventDatePicker.date];
     [[income event] setRecurringByDuration:[recurringCategories objectAtIndex:[recurringType selectedRowInComponent:0]]];

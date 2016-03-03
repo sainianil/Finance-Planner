@@ -16,7 +16,8 @@
 @property(nonatomic, strong) NSString *databasePath;
 
 + (DBManager*)sharedDatabaseManager;
-- (BOOL)createDatabase;
-
+//- (BOOL)createDatabase;
+- (float)accountBalance;
+- (BOOL)updateAccountBalance:(float)balance;
 
 @end

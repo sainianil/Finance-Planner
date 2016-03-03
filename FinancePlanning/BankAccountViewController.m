@@ -11,7 +11,6 @@
 
 @interface BankAccountViewController ()
 
-//@property (nonatomic, strong) BankAccount* bankAccount;
 @property (weak, nonatomic) IBOutlet UILabel *lblBalance;
 @property (weak, nonatomic) IBOutlet UITextField *txtUpdateBalance;
 @property (weak, nonatomic) IBOutlet UIButton *btnUpdateBalance;
@@ -19,7 +18,6 @@
 @end
 
 @implementation BankAccountViewController
-//@synthesize bankAccount;
 @synthesize lblBalance;
 @synthesize txtUpdateBalance;
 @synthesize btnUpdateBalance;
@@ -30,7 +28,17 @@
     
     btnUpdateBalance.enabled = NO;
     self.lblBalance.text = [NSString stringWithFormat:@"%.2f",  [[BankAccount sharedBankAccount] balance]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtUpdateBalance];
 }
+
+- (void)textFieldDidChange:(NSNotification*)notif {
+    BOOL isEnable = NO;
+    if ([txtUpdateBalance.text length] > 0) {
+        isEnable = YES;
+    }
+    btnUpdateBalance.enabled = isEnable;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,14 +60,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-#pragma mark - UITextFieldDelegate methods
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    if ([textField.text floatValue] > 0.0) {
-        btnUpdateBalance.enabled = YES;
-    }
-}
 
 @end

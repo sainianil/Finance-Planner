@@ -26,6 +26,7 @@ typedef enum EventCategory {
     NSDate *startDate;
     NSString *recurringByDuration;
     NSNumber *occurrences;
+    NSNumber *amount;
 }
 
 @property (nonatomic, assign) EventType eventType;
@@ -34,6 +35,7 @@ typedef enum EventCategory {
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSString *recurringByDuration;
 @property (nonatomic, strong) NSNumber *occurrences;
+@property (nonatomic, strong) NSNumber *amount;
 
 - (Event*)initWithEventCategory:(EventCategory)eventCat;
 
