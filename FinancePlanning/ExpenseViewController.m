@@ -10,7 +10,7 @@
 #import "Expense.h"
 #import "MyUtilities.h"
 
-@interface ExpenseViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface ExpenseViewController () <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 {
     NSArray *expenseCategories;
     NSArray *recurringCategories;
@@ -162,6 +162,12 @@
     return title;
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //[textField resignFirstResponder];
+    return YES;
+}
 
 /*
 #pragma mark - Navigation

@@ -10,7 +10,7 @@
 #import "Model/Income.h"
 #import "MyUtilities.h"
 
-@interface IncomeViewController () <UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface IncomeViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate> {
     NSArray *incomeCategories;
     NSArray *recurringCategories;
 }
@@ -160,6 +160,13 @@
         title = recurringCategories[row];
     }
     return title;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //[textField resignFirstResponder];
+    return YES;
 }
 
 /*

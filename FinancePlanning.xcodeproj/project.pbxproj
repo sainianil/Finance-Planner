@@ -24,11 +24,13 @@
 		47526B591C89E4E000D537D1 /* MonthlyExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47526B581C89E4E000D537D1 /* MonthlyExpenseViewController.m */; };
 		47526B5D1C89E78800D537D1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47526B5C1C89E78800D537D1 /* QuartzCore.framework */; };
 		47526B611C89E90500D537D1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47526B601C89E90500D537D1 /* CoreGraphics.framework */; };
+		47526B651C89EC9000D537D1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 47526B641C89EC9000D537D1 /* Podfile */; };
 		477B90EA1C8758AE001345FF /* BankAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90E91C8758AE001345FF /* BankAccount.m */; };
 		477B90ED1C87599D001345FF /* Income.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90EC1C87599D001345FF /* Income.m */; };
 		477B90F01C8759AF001345FF /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 477B90EF1C8759AF001345FF /* Expense.m */; };
 		47E1933E1C88FC38003F5F82 /* EventIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E1933D1C88FC37003F5F82 /* EventIDGenerator.m */; };
 		47E193411C88FF14003F5F82 /* MyUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E193401C88FF14003F5F82 /* MyUtilities.m */; };
+		E0FC49423088C3E31A9DADC9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC494E8B55BE4AE2E113D9C5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		47526B581C89E4E000D537D1 /* MonthlyExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthlyExpenseViewController.m; sourceTree = "<group>"; };
 		47526B5C1C89E78800D537D1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		47526B601C89E90500D537D1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		47526B641C89EC9000D537D1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		477B90E81C8758AE001345FF /* BankAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BankAccount.h; path = Model/BankAccount.h; sourceTree = "<group>"; };
 		477B90E91C8758AE001345FF /* BankAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BankAccount.m; path = Model/BankAccount.m; sourceTree = "<group>"; };
 		477B90EB1C87599D001345FF /* Income.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Income.h; path = Model/Income.h; sourceTree = "<group>"; };
@@ -82,6 +85,9 @@
 		47E1933D1C88FC37003F5F82 /* EventIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventIDGenerator.m; sourceTree = "<group>"; };
 		47E1933F1C88FF14003F5F82 /* MyUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUtilities.h; sourceTree = "<group>"; };
 		47E193401C88FF14003F5F82 /* MyUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUtilities.m; sourceTree = "<group>"; };
+		9453A60F81EEBBB619E6979C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FAAB81E92B6157DC8A1A1710 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FC494E8B55BE4AE2E113D9C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 				47526B611C89E90500D537D1 /* CoreGraphics.framework in Frameworks */,
 				47526B5D1C89E78800D537D1 /* QuartzCore.framework in Frameworks */,
 				0423B3D51C88769E006802FA /* libsqlite3.0.tbd in Frameworks */,
+				E0FC49423088C3E31A9DADC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,9 +124,12 @@
 		0437B9A71C86BE9700F80F76 = {
 			isa = PBXGroup;
 			children = (
+				47526B641C89EC9000D537D1 /* Podfile */,
 				0437B9B21C86BE9700F80F76 /* FinancePlanning */,
 				0437B9CF1C86BE9700F80F76 /* FinancePlanningTests */,
 				0437B9B11C86BE9700F80F76 /* Products */,
+				A4D471161F1F90D145182B60 /* Pods */,
+				4497931EA54012C300634026 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +191,14 @@
 			path = FinancePlanningTests;
 			sourceTree = "<group>";
 		};
+		4497931EA54012C300634026 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC494E8B55BE4AE2E113D9C5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		477B90E51C8757BE001345FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +225,15 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		A4D471161F1F90D145182B60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9453A60F81EEBBB619E6979C /* Pods.debug.xcconfig */,
+				FAAB81E92B6157DC8A1A1710 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0437B9D51C86BE9700F80F76 /* Build configuration list for PBXNativeTarget "FinancePlanning" */;
 			buildPhases = (
+				7432900A0256057B832883D5 /* Check Pods Manifest.lock */,
 				0437B9AC1C86BE9700F80F76 /* Sources */,
 				0437B9AD1C86BE9700F80F76 /* Frameworks */,
 				0437B9AE1C86BE9700F80F76 /* Resources */,
+				58D1EE11D1D393693CF8905D /* Embed Pods Frameworks */,
+				B92EF1E2E6827ACDA1B1D29C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +319,7 @@
 			files = (
 				0437B9C61C86BE9700F80F76 /* LaunchScreen.storyboard in Resources */,
 				0437B9C31C86BE9700F80F76 /* Assets.xcassets in Resources */,
+				47526B651C89EC9000D537D1 /* Podfile in Resources */,
 				0437B9C11C86BE9700F80F76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +332,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58D1EE11D1D393693CF8905D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7432900A0256057B832883D5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B92EF1E2E6827ACDA1B1D29C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0437B9AC1C86BE9700F80F76 /* Sources */ = {
@@ -447,8 +526,10 @@
 		};
 		0437B9D61C86BE9700F80F76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9453A60F81EEBBB619E6979C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FinancePlanning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks \"$(SRCROOT)/FinancePlanning/Model\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anilsaini.FinancePlanning;
@@ -458,8 +539,10 @@
 		};
 		0437B9D71C86BE9700F80F76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAAB81E92B6157DC8A1A1710 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FinancePlanning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks \"$(SRCROOT)/FinancePlanning/Model\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anilsaini.FinancePlanning;

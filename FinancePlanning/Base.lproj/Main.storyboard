@@ -33,7 +33,10 @@
                                     <constraint firstAttribute="height" constant="30" id="9vc-Ew-gdF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="FqV-x3-pBc"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0w-Mh-mhg">
                                 <rect key="frame" x="68" y="255" width="185" height="44"/>
@@ -210,9 +213,56 @@
                     <view key="view" contentMode="scaleToFill" id="Jt1-v3-loM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K02-yd-Imp">
+                                <rect key="frame" x="20" y="207" width="280" height="229"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="229" id="2PN-GH-JgR"/>
+                                </constraints>
+                            </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ejm-D3-Mzo">
+                                <rect key="frame" x="20" y="83" width="280" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ie3-tc-q4Z"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="478804124.68792099">
+                                    <!--2016-03-04 17:08:44 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9r-q3-xJJ">
+                                <rect key="frame" x="20" y="146" width="280" height="44"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7sA-v0-Izr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Show">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showChart:" destination="6ea-eg-Of9" eventType="touchUpInside" id="cP3-qC-5UD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ejm-D3-Mzo" firstAttribute="leading" secondItem="Jt1-v3-loM" secondAttribute="leading" constant="20" id="EC7-aq-otr"/>
+                            <constraint firstAttribute="trailing" secondItem="Ejm-D3-Mzo" secondAttribute="trailing" constant="20" id="F0W-Gg-nvG"/>
+                            <constraint firstAttribute="trailing" secondItem="K02-yd-Imp" secondAttribute="trailing" constant="20" id="Mxr-j0-Mpa"/>
+                            <constraint firstItem="K02-yd-Imp" firstAttribute="top" secondItem="r9r-q3-xJJ" secondAttribute="bottom" constant="17" id="So9-tM-1by"/>
+                            <constraint firstItem="K02-yd-Imp" firstAttribute="leading" secondItem="Jt1-v3-loM" secondAttribute="leading" constant="20" id="azP-h1-DY8"/>
+                            <constraint firstAttribute="trailing" secondItem="r9r-q3-xJJ" secondAttribute="trailing" constant="20" id="mRk-Ic-gyD"/>
+                            <constraint firstItem="r9r-q3-xJJ" firstAttribute="leading" secondItem="Jt1-v3-loM" secondAttribute="leading" constant="20" id="oFm-ml-ZHX"/>
+                            <constraint firstItem="Ejm-D3-Mzo" firstAttribute="top" secondItem="51N-wD-OVA" secondAttribute="bottom" constant="19" id="oKO-ow-Tp2"/>
+                            <constraint firstItem="r9r-q3-xJJ" firstAttribute="top" secondItem="Ejm-D3-Mzo" secondAttribute="bottom" constant="13" id="pBQ-bT-pHI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1nT-Md-DoP"/>
+                    <connections>
+                        <outlet property="containerView" destination="K02-yd-Imp" id="vLr-5e-yiu"/>
+                        <outlet property="datePicker" destination="Ejm-D3-Mzo" id="bxe-bp-U5u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txj-Ab-0ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ao-ie-Cd0">
-                                <rect key="frame" x="20" y="309" width="280" height="44"/>
+                                <rect key="frame" x="20" y="264" width="280" height="44"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fw8-ot-Rj3"/>
@@ -270,15 +320,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-OV-Gth">
-                                <rect key="frame" x="20" y="239" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bqe-f2-lgL"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="478780247.25589299">
-                                    <!--2016-03-04 10:30:47 +0000-->
-                                </date>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrG-kO-Vd8">
                                 <rect key="frame" x="20" y="155" width="280" height="44"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,22 +341,16 @@
                             <constraint firstAttribute="trailing" secondItem="dX6-VI-YGj" secondAttribute="trailing" constant="20" id="8gG-BN-uET"/>
                             <constraint firstItem="wrG-kO-Vd8" firstAttribute="leading" secondItem="OeD-qU-iWJ" secondAttribute="leading" constant="20" id="DaY-m8-8Iv"/>
                             <constraint firstAttribute="trailing" secondItem="wrG-kO-Vd8" secondAttribute="trailing" constant="20" id="IrJ-jM-eG0"/>
-                            <constraint firstAttribute="trailing" secondItem="KI5-OV-Gth" secondAttribute="trailing" constant="20" id="MR0-ev-b3V"/>
-                            <constraint firstItem="KI5-OV-Gth" firstAttribute="top" secondItem="wrG-kO-Vd8" secondAttribute="bottom" constant="40" id="QWX-0Y-Dcf"/>
                             <constraint firstItem="dX6-VI-YGj" firstAttribute="top" secondItem="FAK-dX-fOP" secondAttribute="bottom" constant="17" id="S7p-aw-qmW"/>
                             <constraint firstItem="dX6-VI-YGj" firstAttribute="leading" secondItem="OeD-qU-iWJ" secondAttribute="leading" constant="20" id="U12-Y0-deL"/>
-                            <constraint firstItem="6Ao-ie-Cd0" firstAttribute="top" secondItem="KI5-OV-Gth" secondAttribute="bottom" constant="20" id="n3H-hM-6xB"/>
+                            <constraint firstItem="6Ao-ie-Cd0" firstAttribute="top" secondItem="wrG-kO-Vd8" secondAttribute="bottom" constant="65" id="dNe-N2-lzf"/>
                             <constraint firstItem="6Ao-ie-Cd0" firstAttribute="leading" secondItem="OeD-qU-iWJ" secondAttribute="leading" constant="20" id="p4n-gM-d5K"/>
                             <constraint firstItem="wrG-kO-Vd8" firstAttribute="top" secondItem="dX6-VI-YGj" secondAttribute="bottom" constant="37" id="qa9-P3-xgx"/>
                             <constraint firstAttribute="trailing" secondItem="6Ao-ie-Cd0" secondAttribute="trailing" constant="20" id="yeo-16-Ss3"/>
-                            <constraint firstItem="KI5-OV-Gth" firstAttribute="leading" secondItem="OeD-qU-iWJ" secondAttribute="leading" constant="20" id="zXQ-XA-Aw0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reports" image="reports" id="DmV-fv-Tyn"/>
                     <navigationItem key="navigationItem" title="Finance Reports" id="rom-9j-N2u"/>
-                    <connections>
-                        <outlet property="datePicker" destination="KI5-OV-Gth" id="6pD-6a-nmK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSh-jc-yqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,6 +404,9 @@
                                 <rect key="frame" x="120" y="183" width="180" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Lcp-EU-HUr" id="nQt-Oa-7Zu"/>
+                                </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-vO-gJ1">
                                 <rect key="frame" x="20" y="223" width="280" height="52"/>
@@ -391,7 +429,10 @@
                                     <constraint firstAttribute="height" constant="30" id="We6-g7-rQM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Lcp-EU-HUr" id="k9q-p8-JjW"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sy1-mo-bKe">
                                 <rect key="frame" x="20" y="334" width="280" height="44"/>
@@ -429,7 +470,10 @@
                                     <constraint firstAttribute="width" constant="92" id="ju5-wF-IJh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Lcp-EU-HUr" id="woP-4B-ZHN"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,6 +580,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="cPW-fv-SUT"/>
+                                </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tDZ-eO-upU">
                                 <rect key="frame" x="20" y="223" width="280" height="52"/>
@@ -552,7 +599,10 @@
                                     <constraint firstAttribute="height" constant="30" id="m8H-HF-Mtj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="DhV-8r-bD2"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJc-T8-ZEb">
                                 <rect key="frame" x="20" y="334" width="280" height="44"/>
@@ -588,7 +638,10 @@
                                     <constraint firstAttribute="height" constant="30" id="O14-0z-6Yx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="EPy-no-FHL"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

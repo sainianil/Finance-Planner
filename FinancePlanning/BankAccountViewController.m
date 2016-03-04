@@ -9,7 +9,7 @@
 #import "BankAccountViewController.h"
 #import "Model/BankAccount.h"
 
-@interface BankAccountViewController ()
+@interface BankAccountViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblBalance;
 @property (weak, nonatomic) IBOutlet UITextField *txtUpdateBalance;
@@ -60,5 +60,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //[textField resignFirstResponder];
+    return YES;
+}
 
 @end
