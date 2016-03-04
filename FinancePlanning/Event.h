@@ -20,6 +20,7 @@ typedef enum EventCategory {
 
 @interface Event : NSObject
 {
+    NSString *eventID;
     EventType eventType;
     NSString *eventName;
     NSString *eventDescription;
@@ -29,6 +30,7 @@ typedef enum EventCategory {
     NSNumber *amount;
 }
 
+@property (nonatomic, strong) NSString *eventID;
 @property (nonatomic, assign) EventType eventType;
 @property (nonatomic, strong) NSString *eventName;
 @property (nonatomic, strong) NSString *eventDescription;
@@ -38,5 +40,6 @@ typedef enum EventCategory {
 @property (nonatomic, strong) NSNumber *amount;
 
 - (Event*)initWithEventCategory:(EventCategory)eventCat;
-
+- (int)eventCategory;
+- (NSString*)eventDetail;
 @end

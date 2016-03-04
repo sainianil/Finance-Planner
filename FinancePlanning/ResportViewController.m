@@ -10,6 +10,7 @@
 
 @interface ResportViewController ()
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @end
 
 @implementation ResportViewController

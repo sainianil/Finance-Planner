@@ -8,6 +8,7 @@
 
 #import "ExpenseViewController.h"
 #import "Expense.h"
+#import "MyUtilities.h"
 
 @interface ExpenseViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 {
@@ -27,6 +28,7 @@
 
 - (void)setup;
 - (void)enableDisableAddExpenseButton;
+- (void)clearFields;
 @end
 
 @implementation ExpenseViewController
@@ -84,6 +86,7 @@
     
     lblRepeat.hidden = txtNoOfOccurences.hidden = recurringType.hidden = isHidden;
     [self enableDisableAddExpenseButton];
+    [self clearFields];
 }
 
 - (void)enableDisableAddExpenseButton {
@@ -94,6 +97,16 @@
     }
     
     self.btnAddExpense.enabled = isEnable;
+}
+
+- (void)clearFields {
+    self.txtAmount.text = @"";
+    self.txtExpenseDesc.text = @"";
+    self.txtNoOfOccurences.text = @"";
+    [self.eventDatePicker setDate:[NSDate date]];
+    [expenseCategory reloadComponent:0];
+    [recurringType reloadComponent:0];
+    [self enableDisableAddExpenseButton];
 }
 
 - (IBAction)segmentControlAction:(UISegmentedControl *)sender {
@@ -110,14 +123,20 @@
     }
     
     [[expense event] setEventType:eType];
-    NSLog(@"%@", [expenseCategories objectAtIndex:[expenseCategory selectedRowInComponent:0]]);
+//    NSLog(@"%@", [expenseCategories objectAtIndex:[expenseCategory selectedRowInComponent:0]]);
     [[expense event] setEventName:[expenseCategories objectAtIndex:[expenseCategory selectedRowInComponent:0]]];
     [[expense event] setAmount:[NSNumber numberWithFloat:[self.txtAmount.text floatValue]]];
     [[expense event] setEventDescription:self.txtExpenseDesc.text];
     [[expense event] setStartDate:self.eventDatePicker.date];
     [[expense event] setRecurringByDuration:[recurringCategories objectAtIndex:[recurringType selectedRowInComponent:0]]];
     [[expense event] setOccurrences: [NSNumber numberWithInteger:[self.txtNoOfOccurences.text integerValue]]];
-    [expense updateExpense];
+    if(![expense updateExpense]) {
+       [self presentViewController:[MyUtilities alert:@"Database Error" message:@"Failed to add expense source. Please try again later." button:@"OK"] animated:YES completion:nil];
+    } else {
+        [self presentViewController:[MyUtilities alert:@"Expense is added successfully" message:[[expense event] eventDetail] button:@"OK"] animated:YES completion:nil];
+        [self clearFields];
+    }
+    expense = nil;
 }
 
 

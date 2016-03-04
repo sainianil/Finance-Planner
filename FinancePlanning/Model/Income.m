@@ -7,6 +7,9 @@
 //
 
 #import "Income.h"
+#import "DBManager.h"
+#import "EventIDGenerator.h"
+#import "MyUtilities.h"
 
 @implementation Income
 @synthesize event;
@@ -18,7 +21,26 @@
     return self;
 }
 
-- (void)updateIncome {
-    NSLog(@"%@", event);
+- (BOOL)updateIncome {
+    BOOL isIncomeAdded = NO;
+    
+    self.event.eventID = [EventIDGenerator generateUniqueEventID:eIncome];
+    
+    isIncomeAdded = [[DBManager sharedDatabaseManager] createEvent:event];
+    
+    int months = 1;
+    if (event.eventType == eRecurring) {
+        if ([event.recurringByDuration isEqualToString:@"Quarterly"]) {
+            months = 3;
+        }
+        
+        for (int i = 1; i < [event.occurrences integerValue]; i++) {
+            event.eventID = [[EventIDGenerator generateUniqueEventID:eIncome] stringByAppendingFormat:@"-%d", i];
+            event.startDate = [MyUtilities date:event.startDate increaseDateByMonth:months];
+            isIncomeAdded = [[DBManager sharedDatabaseManager] createEvent:event];
+        }
+    }
+    
+    return isIncomeAdded;
 }
 @end

@@ -12,13 +12,14 @@
 {
     EventCategory eventCategory;
 }
-@property (nonatomic, assign) EventCategory eventCategory;
+//@property (nonatomic, assign) EventCategory eventCategory;
 
 @end
 
 @implementation Event
+@synthesize eventID;
 @synthesize eventType;
-@synthesize eventCategory;
+//@synthesize eventCategory;
 @synthesize eventName;
 @synthesize amount;
 @synthesize eventDescription;
@@ -28,26 +29,31 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.eventCategory = eIncome;
+        eventCategory = eIncome;
     }
     return self;
 }
 
 - (Event*)initWithEventCategory:(EventCategory)eventCat {
     if(self = [self init]) {
-        self.eventCategory = eventCat;
+        eventCategory = eventCat;
     }
     return self;
 }
 
-- (NSString *)description {
-    NSString *desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Amount:%@,\n Desc: %@,\n StartDate:%@)", eventType, eventCategory, eventName, amount, eventDescription, startDate];
-    
-    if (eventType == eRecurring) {
-        desc = [NSString stringWithFormat:@"Event:(\n Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Monthly = 0, Quarterly = 1),\n Name:%@,\n Desc: %@,\n Amount:%@,\n StartDate:%@,\n RecurringByDuration:%@,\n Occurrences:%@)", eventType, eventCategory, eventName, amount, eventDescription, startDate, recurringByDuration, occurrences];
-    }
+- (int)eventCategory {
+    return eventCategory;
+}
+
+- (NSString*)description {
+
+       NSString *desc = [NSString stringWithFormat:@"Event:(\n EventID:%@, Type: %d (Ad-hoc = 0, Recurring = 1),\n Category:%d (Income = 0, Expense = 1),\n Name:%@,\n  Amount:%@,\n Desc: %@,\n StartDate:%@,\n RecurringByDuration:%@ (Monthly, Quarterly),\n Occurrences:%@)", eventID, eventType, eventCategory, eventName, amount, eventDescription, startDate, recurringByDuration, occurrences];
     
     return desc;
+}
+
+- (NSString*)eventDetail {
+    return [NSString stringWithFormat:@"Name: %@, Description: %@, Date:%@", eventName, eventDescription, startDate];
 }
 
 @end

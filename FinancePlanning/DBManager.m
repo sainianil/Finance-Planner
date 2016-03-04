@@ -67,7 +67,7 @@ static DBManager *sharedDBManager = nil;
     
     //Build the path to the database file
     databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"financeplan.db"]];
-    NSLog(@"dbPath: %@", databasePath);
+    NSLog(@"Debug: dbPath - %@", databasePath);
     BOOL isDBCreated = YES;
     
     //Check whether file is already exists
@@ -96,7 +96,7 @@ static DBManager *sharedDBManager = nil;
             /*
              Event table
              -----------
-             EventID
+             EventID String;
              EventCategory eventCategory;
              EventType eventType;
              NSString *eventName;
@@ -107,51 +107,20 @@ static DBManager *sharedDBManager = nil;
              NSNumber *occurrences;
              */
             
-            sqlStmt = "create table if not exists Event (eventID integer primary key, category integer, type integer, name text, amount real, desc text, startDate text, duration text, occurrences integer)";
+            sqlStmt = "create table if not exists Event (eventID text primary key, category integer, type integer, name text, amount real, desc text, startDate text, duration text, occurrences integer)";
             
             if (sqlite3_exec(database, sqlStmt, NULL, NULL, &errMsg) != SQLITE_OK) {
                 isDBCreated = NO;
-                NSLog(@"Failed to create Event table![ERR: %s]", errMsg);
+                NSLog(@"ERR: Failed to create Event table![ERR: %s]", errMsg);
             }
             
             sqlite3_close(database);
         } else {
             isDBCreated = NO;
-            NSLog(@"Failed to open database!");
+            NSLog(@"ERR: Failed to open database!");
         }
     }
     return isDBCreated;
-}
-
-- (BOOL)executeQuery:(NSString*)query {
-    
-    BOOL isInserted = NO;
-
-    if ([self openDB])
-    {
-        sqlite3_stmt *statement = nil;
-        const char *insert_stmt = [query UTF8String];
-        sqlite3_prepare_v2(database, insert_stmt, -1, &statement, NULL);
-        
-        if (sqlite3_step(statement) == SQLITE_DONE)
-        {
-            isInserted = YES;
-        }
-        
-        sqlite3_reset(statement);
-        sqlite3_close(database);
-        
-    } else {
-        NSLog(@"Failed to open database!");
-    }
-    
-    return isInserted;
-}
-
-- (BOOL)insertAccountBalance {
-    NSString *insertSQL = [NSString stringWithFormat:@"insert into BankAccount (accountID, balance) values (\"%d\",\"%0.2f\")", 111, 0.0];
-    
-    return [self executeQuery:insertSQL];
 }
 
 - (NSMutableArray *)runSelecteQueryForColumns:(NSArray*)columns ontableName: (NSString*)tableName withWhereClause:(NSString *)whereClause withOrderByClause:(NSString*)orederByCalause withGroupByClause:(NSString*)groupByClause
@@ -203,7 +172,7 @@ static DBManager *sharedDBManager = nil;
         [simpleQuery appendString:[NSString stringWithFormat:@" %@", orederByCalause]];
     }
     
-    NSLog(@"Select Query: - %@",simpleQuery);
+    NSLog(@"Debug: Select Query - %@",simpleQuery);
     
     const char *query_stmt = [simpleQuery UTF8String];
     
@@ -225,7 +194,7 @@ static DBManager *sharedDBManager = nil;
     
     sqlite3_finalize(statement);
     sqlite3_close(database);
-    NSLog(@"RESULT %@", resultArray);
+    NSLog(@"Debug: Result - %@", resultArray);
     
     return resultArray;
 }
@@ -269,16 +238,62 @@ static DBManager *sharedDBManager = nil;
     return itemDic;
 }
 
+- (BOOL)executeQuery:(NSString*)query {
+    
+    BOOL isExecuted = NO;
+    
+    if ([self openDB])
+    {
+        sqlite3_stmt *statement = nil;
+        const char *insert_stmt = [query UTF8String];
+        sqlite3_prepare_v2(database, insert_stmt, -1, &statement, NULL);
+        
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            isExecuted = YES;
+        }
+        
+        sqlite3_reset(statement);
+        sqlite3_close(database);
+        
+    } else {
+        NSLog(@"ERR: Failed to open database!");
+    }
+    
+    return isExecuted;
+}
+
+- (BOOL)insertAccountBalance {
+    
+    NSString *insertSQL = [NSString stringWithFormat:@"insert into BankAccount (accountID, balance) values (\"%d\",\"%0.2f\")", 111, 0.0];
+    
+    return [self executeQuery:insertSQL];
+}
+
 - (float)accountBalance {
     float balance = 0.0;
     NSMutableArray *result = [self runSelecteQueryForColumns:@[@"balance"] ontableName:@"BankAccount" withWhereClause:@"where accountID = 111" withOrderByClause:nil withGroupByClause:nil];
     balance = [[[result objectAtIndex:0] valueForKey:@"balance"] floatValue];
     return balance;
 }
-    
+
 - (BOOL)updateAccountBalance:(float)balance {
-    NSString *query = [NSString stringWithFormat:@"UPDATE BankAccount SET balance = %0.2f                       WHERE accountID = 111", balance];
+    NSString *query = [NSString stringWithFormat:@"UPDATE BankAccount SET balance = %0.2f WHERE accountID = 111", balance];
     return [self executeQuery:query];
+}
+
+- (BOOL)createEvent:(Event*)event {
+    NSString *query = [NSString stringWithFormat:@"insert into Event (eventID, category, type, name, amount, desc, startDate, duration, occurrences) values (\"%@\", \"%d\", \"%d\", \"%@\", \"%0.2f\", \"%@\", \"%@\", \"%@\", \"%@\")", event.eventID, event.eventCategory, event.eventType, event.eventName, [event.amount floatValue], event.eventDescription, event.startDate, event.recurringByDuration, event.occurrences];
+    NSLog(@"Debug: Insert Query - %@", query);
+    return [self executeQuery:query];
+}
+
+- (NSArray*)allIncomes {
+    return [self runSelecteQueryForColumns:@[@"startDate AS Date", @"Sum(amount) As Amount"] ontableName:@"Event" withWhereClause:@"where category = 0 AND Date >= date('now')" withOrderByClause:nil withGroupByClause:@"Group by startDate"];
+}
+
+- (NSArray*)allExpenses {
+    return [self runSelecteQueryForColumns:@[@"startDate As Date", @"Sum(amount) As Amount"] ontableName:@"Event" withWhereClause:@"where category = 1 AND Date >= date('now')" withOrderByClause:nil withGroupByClause:@"Group by startDate"];
 }
 
 @end

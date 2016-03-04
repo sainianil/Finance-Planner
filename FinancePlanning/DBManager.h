@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Event.h"
 
 @interface DBManager : NSObject
 {
@@ -15,9 +16,19 @@
 
 @property(nonatomic, strong) NSString *databasePath;
 
+//Singleton class object
 + (DBManager*)sharedDatabaseManager;
-//- (BOOL)createDatabase;
-- (float)accountBalance;
-- (BOOL)updateAccountBalance:(float)balance;
 
+//moved as private method because we'll create database as soon as DBManager's object is created
+//- (BOOL)createDatabase;
+
+//Return's account balance from db
+- (float)accountBalance;
+//Update balance with new balance
+- (BOOL)updateAccountBalance:(float)balance;
+//Create event Ad-hoc and Recurring
+- (BOOL)createEvent:(Event*)event;
+
+- (NSArray*)allIncomes;
+- (NSArray*)allExpenses;
 @end

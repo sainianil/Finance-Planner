@@ -36,4 +36,8 @@
     }];
 }
 
+- (void)testUpdateAccountBalance {
+    
+}
+
 @end

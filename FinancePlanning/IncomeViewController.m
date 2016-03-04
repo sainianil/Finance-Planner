@@ -8,6 +8,7 @@
 
 #import "IncomeViewController.h"
 #import "Model/Income.h"
+#import "MyUtilities.h"
 
 @interface IncomeViewController () <UIPickerViewDataSource, UIPickerViewDelegate> {
     NSArray *incomeCategories;
@@ -25,6 +26,7 @@
 
 - (void)setup;
 - (void)enableDisableAddIncomeButton;
+- (void)clearFields;
 @end
 
 @implementation IncomeViewController
@@ -70,11 +72,13 @@
     if(segmentControl.selectedSegmentIndex == 0) {  // Ad-hoc Income source
         isHidden = YES;
         incomeCategories = @[@"Loan", @"Borrow", @"Others"];
+        [incomeCategory reloadAllComponents];
     } else if(segmentControl.selectedSegmentIndex == 1) {  //Recurring Income source
         incomeCategories = @[@"Salary", @"FD Interest", @"Others"];
         recurringCategories = @[@"Monthly", @"Quaterly"];
         [recurringType reloadAllComponents];
     }
+    [self clearFields];
     
     lblRepeat.hidden = txtNoOfOccurences.hidden = recurringType.hidden = isHidden;
     [self enableDisableAddIncomeButton];
@@ -95,6 +99,16 @@
     self.btnAddIncome.enabled = isEnable;
 }
 
+- (void)clearFields {
+    self.txtAmount.text = @"";
+    self.txtIncomeDesc.text = @"";
+    self.txtNoOfOccurences.text = @"";
+    [self.incomeCategory reloadComponent:0];
+    [self.recurringType reloadComponent:0];
+    [self.eventDatePicker setDate:[NSDate date]];
+    [self enableDisableAddIncomeButton];
+}
+
 - (IBAction)segmentControllerAction:(id)sender {
     [self setup]; //change UI as per segment control selection
 }
@@ -109,14 +123,21 @@
     }
 
     [[income event] setEventType:eType];
-    NSLog(@"%@", [incomeCategories objectAtIndex:[incomeCategory selectedRowInComponent:0]]);
+//    NSLog(@"%@", [incomeCategories objectAtIndex:[incomeCategory selectedRowInComponent:0]]);
     [[income event] setEventName:[incomeCategories objectAtIndex:[incomeCategory selectedRowInComponent:0]]];
     [[income event] setAmount:[NSNumber numberWithFloat:[self.txtAmount.text floatValue]]];
     [[income event] setEventDescription:self.txtIncomeDesc.text];
     [[income event] setStartDate:self.eventDatePicker.date];
     [[income event] setRecurringByDuration:[recurringCategories objectAtIndex:[recurringType selectedRowInComponent:0]]];
     [[income event] setOccurrences: [NSNumber numberWithInteger:[self.txtNoOfOccurences.text integerValue]]];
-    [income updateIncome];
+
+    if(![income updateIncome]) {
+        [self presentViewController:[MyUtilities alert:@"Database Error" message:@"Failed to add income source. Please try again later." button:@"OK"] animated:YES completion:nil];
+    } else {
+        [self presentViewController:[MyUtilities alert:@"Income is added successfully" message:[[income event] eventDetail] button:@"OK"] animated:YES completion:nil];
+        [self clearFields];
+    }
+    income = nil;
 }
 
 #pragma mark - pickerView datasource methods

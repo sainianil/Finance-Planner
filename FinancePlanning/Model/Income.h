@@ -17,6 +17,6 @@
 
 @property(nonatomic, strong) Event *event;
 
-- (void)updateIncome;
+- (BOOL)updateIncome;
 
 @end
